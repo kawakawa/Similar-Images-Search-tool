@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SimilarImagesSerachTool
+namespace SimilarImagesSerachTool.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,6 +23,12 @@ namespace SimilarImagesSerachTool
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public MainWindow(ViewModel.MainWindowViewModel vm)
+        {
+            InitializeComponent();
+            this.DataContext = vm;
         }
     }
 }
