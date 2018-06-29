@@ -21,6 +21,9 @@ namespace SimilarImagesSerachTool.View
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private ViewModel.MainWindowViewModel _vm;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +33,7 @@ namespace SimilarImagesSerachTool.View
         {
             InitializeComponent();
             this.DataContext = vm;
+            _vm = vm;
         }
 
         private void RootFolderSelectButton_Click(object sender, RoutedEventArgs e)
@@ -37,7 +41,7 @@ namespace SimilarImagesSerachTool.View
             var dialog = new FolderBrowserDialog {Description = @"類似画材検索する対象フォルダを選択して下さい"};
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-
+                _vm.SetRootPath(dialog.SelectedPath);
             }
         }
     }

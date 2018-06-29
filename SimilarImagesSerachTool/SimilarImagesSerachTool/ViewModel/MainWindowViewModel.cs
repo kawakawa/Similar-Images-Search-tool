@@ -17,14 +17,22 @@ namespace SimilarImagesSerachTool.ViewModel
             _mainWindow = new MainWindow(this);
         }
 
-
-
-
-
-
         public void Show()
         {
             _mainWindow?.Show();
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="selectedPath"></param>
+        internal void SetRootPath(string selectedPath)
+        {
+            if(string.IsNullOrWhiteSpace(selectedPath))
+                throw new ArgumentNullException(nameof(selectedPath));
+
+            Model.AppStatus.RootPath = selectedPath;
         }
     }
 }
