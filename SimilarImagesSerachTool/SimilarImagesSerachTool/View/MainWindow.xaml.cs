@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace SimilarImagesSerachTool.View
 {
@@ -29,6 +30,15 @@ namespace SimilarImagesSerachTool.View
         {
             InitializeComponent();
             this.DataContext = vm;
+        }
+
+        private void RootFolderSelectButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new FolderBrowserDialog {Description = @"類似画材検索する対象フォルダを選択して下さい"};
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+
+            }
         }
     }
 }

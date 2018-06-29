@@ -7,6 +7,30 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Grid Column="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Row="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Root Folder"></Label>
+                        <Button Content="選択" Margin="4" Click="RootFolderSelectButton_Click"></Button>
+                    </StackPanel>
+                </Grid>
+                <Grid Row="1">
+
+                </Grid>
+            </Grid>
+            <Grid Column="1">
+
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
