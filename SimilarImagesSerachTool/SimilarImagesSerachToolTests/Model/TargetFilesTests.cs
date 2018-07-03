@@ -19,5 +19,15 @@ namespace SimilarImagesSerachToolTests.Model
         {
             AssertEx.Throws<ArgumentException>(() => SIST.Model.TargetFiles.TargetFilesFactory(@"c:\Dummy\"));
         }
+
+
+
+        [TestMethod]
+        public void 存在するフォルダを指定した場合Nullが返ってこないかテスト()
+        {
+            var targetFiles = SIST.Model.TargetFiles.TargetFilesFactory("./TestsFiles/");
+            targetFiles.IsNotNull();
+        }
+
     }
 }
