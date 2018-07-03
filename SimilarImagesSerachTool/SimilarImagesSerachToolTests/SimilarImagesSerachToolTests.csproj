@@ -59,6 +59,7 @@
     <None Include="TestsFiles\FolderA\sample1_3.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="TestsFiles\FolderA\sample1_4.zip" />
     <None Include="TestsFiles\sample1.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -72,7 +73,9 @@
       <Name>SimilarImagesSerachTool</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="TestsFiles\kara\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="TestsFiles\sample4_6\image_4.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

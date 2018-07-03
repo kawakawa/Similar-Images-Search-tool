@@ -29,5 +29,16 @@ namespace SimilarImagesSerachToolTests.Model
             targetFiles.IsNotNull();
         }
 
+
+        [TestMethod]
+        public void 空の対象フォルダ解析後_対象ファイルがゼロであることを確認()
+        {
+            var targetFiles = SIST.Model.TargetFiles.TargetFilesFactory("./TestsFiles/kara/");
+            targetFiles.Analyze();
+
+        }
+
+
+
     }
 }
