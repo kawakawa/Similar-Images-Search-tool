@@ -32,7 +32,9 @@ namespace SimilarImagesSerachTool.ViewModel
             if(string.IsNullOrWhiteSpace(selectedPath))
                 throw new ArgumentNullException(nameof(selectedPath));
 
-            Model.AppStatus.RootPath = selectedPath;
+
+
+            
         }
     }
 }

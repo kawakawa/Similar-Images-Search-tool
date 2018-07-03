@@ -8,9 +8,6 @@ namespace SimilarImagesSerachTool.Model
 {
     public static class AppStatus
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public static string RootPath { get; set; }
+
     }
 }
