@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace SimilarImagesSerachTool.Model
 {
-    internal class TargetFiles
+    public class TargetFiles
     {
 
-        internal static TargetFiles TargetFilesFactory(string path)
+        public static TargetFiles TargetFilesFactory(string path)
         {
             if(string.IsNullOrWhiteSpace(path))
                 throw new ArgumentNullException(nameof(path));
