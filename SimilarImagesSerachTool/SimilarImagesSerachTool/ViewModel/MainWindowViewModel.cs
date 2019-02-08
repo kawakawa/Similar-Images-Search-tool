@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SimilarImagesSerachTool.View;
+using SimilarImagesSearchTool.View;
+using SimilarImagesSerachTool.Model;
 
-namespace SimilarImagesSerachTool.ViewModel
+namespace SimilarImagesSearchTool.ViewModel
 {
     public class MainWindowViewModel:BaseViewModel
     {
-        private readonly View.MainWindow _mainWindow;
+        private readonly MainWindow _mainWindow;
 
 
         public MainWindowViewModel()
@@ -32,9 +29,12 @@ namespace SimilarImagesSerachTool.ViewModel
             if(string.IsNullOrWhiteSpace(selectedPath))
                 throw new ArgumentNullException(nameof(selectedPath));
 
+            var targetFiles = TargetFiles.Factory(selectedPath);
+            targetFiles.Analyze();
 
 
-            
+
+
         }
     }
 }

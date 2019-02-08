@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SIST= SimilarImagesSerachTool;
+using SITS= SimilarImagesSerachTool;
 
-namespace SimilarImagesSerachToolTests.Model
+namespace SimilarImagesSearchToolTests.Model
 {
     [TestClass]
     public class TargetFilesTests
@@ -10,14 +11,14 @@ namespace SimilarImagesSerachToolTests.Model
         [TestMethod]
         public void Nullや空白を指定した場合Eception発生するかテスト()
         {
-            AssertEx.Throws<ArgumentNullException>(() => SIST.Model.TargetFiles.TargetFilesFactory(null));
-            AssertEx.Throws<ArgumentNullException>(() => SIST.Model.TargetFiles.TargetFilesFactory("  "));
+            AssertEx.Throws<ArgumentNullException>(() => SITS.Model.TargetFiles.Factory(null));
+            AssertEx.Throws<ArgumentNullException>(() => SITS.Model.TargetFiles.Factory("  "));
         }
 
         [TestMethod]
         public void 存在しないフォルダを指定した場合Eception発生するかテスト()
         {
-            AssertEx.Throws<ArgumentException>(() => SIST.Model.TargetFiles.TargetFilesFactory(@"c:\Dummy\"));
+            AssertEx.Throws<ArgumentException>(() => SITS.Model.TargetFiles.Factory(@"c:\Dummy\"));
         }
 
 
@@ -25,7 +26,7 @@ namespace SimilarImagesSerachToolTests.Model
         [TestMethod]
         public void 存在するフォルダを指定した場合Nullが返ってこないかテスト()
         {
-            var targetFiles = SIST.Model.TargetFiles.TargetFilesFactory("./TestsFiles/");
+            var targetFiles = SITS.Model.TargetFiles.Factory("./TestsFiles/");
             targetFiles.IsNotNull();
         }
 
@@ -33,12 +34,33 @@ namespace SimilarImagesSerachToolTests.Model
         [TestMethod]
         public void 空の対象フォルダ解析後_対象ファイルがゼロであることを確認()
         {
-            var targetFiles = SIST.Model.TargetFiles.TargetFilesFactory("./TestsFiles/kara/");
+            var targetFiles = SITS.Model.TargetFiles.Factory("./TestsFiles/kara/");
             targetFiles.Analyze();
+            var files = targetFiles.GetFiles();
+            files.Count().Is(0);
+        }
+
+
+        [TestMethod]
+        public void AA()
+        {
+            var targetFiles = SITS.Model.TargetFiles.Factory("./TestsFiles/");
+            targetFiles.Analyze();
+            var files = targetFiles.GetFiles();
+            files.IsNotNull();
+            files.Count().Is(6);
+            var fi = files.First();
+            var vfs = fi.GetVirtualTargetFiles();
+            vfs.IsNotNull();
+            foreach (var virtualTargetFile in vfs)
+            {
+                virtualTargetFile.GetFileName().Is("");
+            }
+
 
         }
 
 
 
-    }
+}
 }

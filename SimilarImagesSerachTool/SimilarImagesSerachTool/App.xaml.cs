@@ -15,7 +15,7 @@ namespace SimilarImagesSerachTool
     {
         public App()
         {
-            var vm = new ViewModel.MainWindowViewModel();
+            var vm = new SimilarImagesSearchTool.ViewModel.MainWindowViewModel();
             vm.Show();
         }
     }

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C835D80E-ADC1-47E0-BD95-90B6C4D2C25B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>SimilarImagesSerachTool</RootNamespace>
-    <AssemblyName>SimilarImagesSerachTool</AssemblyName>
+    <RootNamespace>SimilarImagesSearchTool</RootNamespace>
+    <AssemblyName>SimilarImagesSearchTool</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,8 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ImageHash">
+      <HintPath>..\..\..\ImageHash\ImageHash\ImageHash\ImageHash\bin\Release\ImageHash.exe</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,7 +62,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\AppStatus.cs" />
+    <Compile Include="Model\FileType.cs" />
+    <Compile Include="Model\TargetFile.cs" />
     <Compile Include="Model\TargetFiles.cs" />
+    <Compile Include="Model\VirtualTargetFile.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Page Include="View\MainWindow.xaml">

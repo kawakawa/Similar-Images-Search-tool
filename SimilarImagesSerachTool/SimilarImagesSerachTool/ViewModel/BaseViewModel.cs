@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace SimilarImagesSerachTool.ViewModel
+namespace SimilarImagesSearchTool.ViewModel
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

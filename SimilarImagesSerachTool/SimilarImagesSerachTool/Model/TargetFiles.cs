@@ -9,10 +9,20 @@ namespace SimilarImagesSerachTool.Model
 {
     public class TargetFiles
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
         private readonly string _rootPath;
 
-        public static TargetFiles TargetFilesFactory(string path)
+
+        private List<TargetFile> _files;
+
+
+
+
+
+
+        public static TargetFiles Factory(string path)
         {
             if(string.IsNullOrWhiteSpace(path))
                 throw new ArgumentNullException(nameof(path));
@@ -36,10 +46,24 @@ namespace SimilarImagesSerachTool.Model
         public void Analyze()
         {
             var di = new DirectoryInfo(_rootPath);
-            var files = di.EnumerateFiles("*", SearchOption.AllDirectories);
+            var fileInfos = di.EnumerateFiles("*", SearchOption.AllDirectories)
+                           .ToList();
 
+            _files=new List<TargetFile>();
+
+            fileInfos.ForEach(fileInfo =>
+            {
+                var targetfile =TargetFile.Factory(fileInfo);
+                _files.Add(targetfile);
+            });
 
         }
+
+        public IEnumerable<TargetFile> GetFiles()
+        {
+            return _files;
+        }
+
 
 
     }
