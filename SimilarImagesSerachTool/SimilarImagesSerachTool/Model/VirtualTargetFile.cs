@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SimilarImagesSerachTool.Model
+namespace SimilarImagesSearchTool.Model
 {
     public class VirtualTargetFile
     {
@@ -25,7 +20,7 @@ namespace SimilarImagesSerachTool.Model
 
         private readonly FileInfo _baseFileInfo;
         private string _filename;
-        private System.Drawing.Image _image;
+        private Image _image;
 
         
         private VirtualTargetFile(FileInfo baseFileInfo)

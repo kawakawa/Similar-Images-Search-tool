@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SimilarImagesSearchTool.Model;
 using SITS= SimilarImagesSerachTool;
 
 namespace SimilarImagesSearchToolTests.Model
@@ -11,14 +12,14 @@ namespace SimilarImagesSearchToolTests.Model
         [TestMethod]
         public void Nullや空白を指定した場合Eception発生するかテスト()
         {
-            AssertEx.Throws<ArgumentNullException>(() => SITS.Model.TargetFiles.Factory(null));
-            AssertEx.Throws<ArgumentNullException>(() => SITS.Model.TargetFiles.Factory("  "));
+            AssertEx.Throws<ArgumentNullException>(() => TargetFiles.Factory(null));
+            AssertEx.Throws<ArgumentNullException>(() => TargetFiles.Factory("  "));
         }
 
         [TestMethod]
         public void 存在しないフォルダを指定した場合Eception発生するかテスト()
         {
-            AssertEx.Throws<ArgumentException>(() => SITS.Model.TargetFiles.Factory(@"c:\Dummy\"));
+            AssertEx.Throws<ArgumentException>(() => TargetFiles.Factory(@"c:\Dummy\"));
         }
 
 
@@ -26,7 +27,7 @@ namespace SimilarImagesSearchToolTests.Model
         [TestMethod]
         public void 存在するフォルダを指定した場合Nullが返ってこないかテスト()
         {
-            var targetFiles = SITS.Model.TargetFiles.Factory("./TestsFiles/");
+            var targetFiles = TargetFiles.Factory("./TestsFiles/");
             targetFiles.IsNotNull();
         }
 
@@ -34,7 +35,7 @@ namespace SimilarImagesSearchToolTests.Model
         [TestMethod]
         public void 空の対象フォルダ解析後_対象ファイルがゼロであることを確認()
         {
-            var targetFiles = SITS.Model.TargetFiles.Factory("./TestsFiles/kara/");
+            var targetFiles = TargetFiles.Factory("./TestsFiles/kara/");
             targetFiles.Analyze();
             var files = targetFiles.GetFiles();
             files.Count().Is(0);
@@ -44,7 +45,7 @@ namespace SimilarImagesSearchToolTests.Model
         [TestMethod]
         public void AA()
         {
-            var targetFiles = SITS.Model.TargetFiles.Factory("./TestsFiles/");
+            var targetFiles = TargetFiles.Factory("./TestsFiles/");
             targetFiles.Analyze();
             var files = targetFiles.GetFiles();
             files.IsNotNull();

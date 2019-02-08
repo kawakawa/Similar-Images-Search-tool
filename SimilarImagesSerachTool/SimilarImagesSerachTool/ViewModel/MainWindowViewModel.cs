@@ -1,4 +1,5 @@
 ﻿using System;
+using SimilarImagesSearchTool.Model;
 using SimilarImagesSearchTool.View;
 using SimilarImagesSerachTool.Model;
 
