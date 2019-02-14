@@ -42,6 +42,7 @@ namespace SimilarImagesSearchToolTests.Model
         }
 
 
+        [Ignore]
         [TestMethod]
         public void AA()
         {

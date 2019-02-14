@@ -52,8 +52,8 @@ namespace SimilarImagesSearchTool.Model
 
             fileInfos.ForEach(fileInfo =>
             {
-                var targetfile =TargetFile.Factory(fileInfo);
-                _files.Add(targetfile);
+                var targetFile =TargetFile.Factory(fileInfo);
+                _files.Add(targetFile);
             });
 
         }

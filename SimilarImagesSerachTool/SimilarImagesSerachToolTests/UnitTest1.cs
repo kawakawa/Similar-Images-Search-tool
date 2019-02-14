@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SimilarImagesSerachToolTests
+namespace SimilarImagesSearchToolTests
 {
     [TestClass]
     public class UnitTest1
