@@ -7,7 +7,7 @@ namespace SimilarImagesSearchTool.Model
 {
 
     /// <summary>
-    /// 物理フォルダを管理
+    /// 物理フォルダ・ファイル全てを管理
     /// </summary>
     public class TargetFiles
     {
@@ -31,6 +31,7 @@ namespace SimilarImagesSearchTool.Model
 
             if (Directory.Exists(path)==false)
                 throw new ArgumentException("Target Path Not Exists");
+            
 
             return new TargetFiles(path);
         }
@@ -47,6 +48,8 @@ namespace SimilarImagesSearchTool.Model
         /// </summary>
         public void Analyze()
         {
+
+
             var di = new DirectoryInfo(_rootPath);
             var fileInfos = di.EnumerateFiles("*", SearchOption.AllDirectories)
                            .ToList();
