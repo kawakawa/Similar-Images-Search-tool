@@ -54,7 +54,6 @@
   <ItemGroup>
     <Compile Include="ChainingAssertion.MSTest.cs" />
     <Compile Include="Model\TargetFilesTests.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\FolderTests.cs" />
   </ItemGroup>
