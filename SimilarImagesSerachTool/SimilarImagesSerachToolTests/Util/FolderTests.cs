@@ -10,5 +10,11 @@ namespace SimilarImagesSearchToolTests.Util
         {
             SimilarImagesSearchTool.Utli.Folder.IsFolder("./TestsFiles/sample1.zip").IsFalse();
         }
+
+        [TestMethod]
+        public void フォルダの場合Trueとなるか()
+        {
+            SimilarImagesSearchTool.Utli.Folder.IsFolder("./TestsFiles/").IsTrue();
+        }
     }
 }
