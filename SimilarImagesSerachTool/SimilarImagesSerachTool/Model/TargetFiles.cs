@@ -5,6 +5,10 @@ using System.Linq;
 
 namespace SimilarImagesSearchTool.Model
 {
+
+    /// <summary>
+    /// 物理フォルダを管理
+    /// </summary>
     public class TargetFiles
     {
         /// <summary>
