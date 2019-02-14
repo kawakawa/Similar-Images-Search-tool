@@ -2,7 +2,6 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SimilarImagesSearchTool.Model;
-using SITS= SimilarImagesSerachTool;
 
 namespace SimilarImagesSearchToolTests.Model
 {
