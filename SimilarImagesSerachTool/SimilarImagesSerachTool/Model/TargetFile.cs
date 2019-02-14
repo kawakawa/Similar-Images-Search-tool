@@ -13,10 +13,10 @@ namespace SimilarImagesSearchTool.Model
 
         public static TargetFile Factory(FileInfo fileInfo)
         {
-            var targetfile = new TargetFile(fileInfo);
-            var virtualfiles = targetfile.AnalyzeVirtualTargetFiles();
-            targetfile.SetVirtualTargetFiles(virtualfiles);
-            return targetfile;
+            var targetFile = new TargetFile(fileInfo);
+            var virtualTargetFiles = targetFile.AnalyzeVirtualTargetFiles();
+            targetFile.SetVirtualTargetFiles(virtualTargetFiles);
+            return targetFile;
         }
 
 
