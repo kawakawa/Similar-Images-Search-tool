@@ -69,6 +69,9 @@
     <None Include="TestsFiles\sample1_2.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="TestsFiles\sample7.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimilarImagesSerachTool\SimilarImagesSerachTool.csproj">
