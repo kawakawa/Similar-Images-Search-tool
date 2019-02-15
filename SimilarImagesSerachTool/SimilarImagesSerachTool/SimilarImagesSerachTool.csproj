@@ -65,9 +65,10 @@
     <Compile Include="Model\AppStatus.cs" />
     <Compile Include="Model\FileType.cs" />
     <Compile Include="Model\TargetFile.cs" />
-    <Compile Include="Model\TargetFiles.cs" />
     <Compile Include="Model\VirtualTargetFile.cs" />
+    <Compile Include="Utli\File.cs" />
     <Compile Include="Utli\Folder.cs" />
+    <Compile Include="Utli\ZipFile.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Page Include="View\MainWindow.xaml">

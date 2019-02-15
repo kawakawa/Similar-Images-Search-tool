@@ -29,7 +29,7 @@ namespace SimilarImagesSearchTool.ViewModel
             if(string.IsNullOrWhiteSpace(selectedPath))
                 throw new ArgumentNullException(nameof(selectedPath));
 
-            var targetFiles = TargetFiles.Factory(selectedPath);
+            var targetFiles = TargetFile.Factory(selectedPath);
 
 
 
