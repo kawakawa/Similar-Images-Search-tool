@@ -17,7 +17,7 @@ namespace SimilarImagesSearchTool.Model
         private readonly string _rootPath;
 
 
-        private List<TargetFile> _files;
+        private List<TargetFiles> _childrenFiles;
 
 
 
@@ -30,7 +30,8 @@ namespace SimilarImagesSearchTool.Model
                 throw new ArgumentNullException(nameof(path));
 
             if (Directory.Exists(path)==false)
-                throw new ArgumentException("Target Path Not Exists");
+                if (File.Exists(path)==false)
+                    throw new ArgumentException("Target Path Not Exists");
             
 
             return new TargetFiles(path);
@@ -41,32 +42,37 @@ namespace SimilarImagesSearchTool.Model
         private TargetFiles(string rootPath)
         {
             _rootPath = rootPath;
+
+            Analyze();
         }
 
         /// <summary>
         /// RootPath配下のファイル一式を列挙します
         /// </summary>
-        public void Analyze()
+        private void Analyze()
         {
 
+            _childrenFiles=new List<TargetFiles>();
+            
 
-            var di = new DirectoryInfo(_rootPath);
-            var fileInfos = di.EnumerateFiles("*", SearchOption.AllDirectories)
-                           .ToList();
+            //解析対象がフォルダ以外の場合
+            if (Utli.Folder.IsFolder(_rootPath)==false)
+                return;
 
-            _files=new List<TargetFile>();
-
-            fileInfos.ForEach(fileInfo =>
+            var filesPath = Directory.EnumerateFileSystemEntries(_rootPath, "*", System.IO.SearchOption.TopDirectoryOnly);
+            
+            
+            filesPath.ToList().ForEach(filePath =>
             {
-                var targetFile =TargetFile.Factory(fileInfo);
-                _files.Add(targetFile);
+                var targetFile =TargetFiles.Factory(filePath);
+                _childrenFiles.Add(targetFile);
             });
 
         }
 
-        public IEnumerable<TargetFile> GetFiles()
+        public IEnumerable<TargetFiles> GetChildrenFiles()
         {
-            return _files;
+            return _childrenFiles;
         }
 
 

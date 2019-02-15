@@ -16,12 +16,17 @@ namespace SimilarImagesSearchToolTests.Model
         }
 
         [TestMethod]
-        public void 存在しないフォルダを指定した場合Eception発生するかテスト()
+        public void 存在しないフォルダを指定した場合Exception発生するかテスト()
         {
             AssertEx.Throws<ArgumentException>(() => TargetFiles.Factory(@"c:\Dummy\"));
         }
 
-
+        [TestMethod]
+        public void 存在しないファイルを指定した場合Exception発生するかテスト()
+        {
+            AssertEx.Throws<ArgumentException>(() => TargetFiles.Factory(@"c:\Dummy.txt"));
+        }
+        
 
         [TestMethod]
         public void 存在するフォルダを指定した場合Nullが返ってこないかテスト()
@@ -30,33 +35,43 @@ namespace SimilarImagesSearchToolTests.Model
             targetFiles.IsNotNull();
         }
 
+        [TestMethod]
+        public void 存在するファイルを指定した場合Nullが返ってこないかテスト()
+        {
+            var targetFiles = TargetFiles.Factory("./TestsFiles/sample1.zip");
+            targetFiles.IsNotNull();
+        }
+
+
 
         [TestMethod]
         public void 空の対象フォルダ解析後_対象ファイルがゼロであることを確認()
         {
             var targetFiles = TargetFiles.Factory("./TestsFiles/kara/");
-            targetFiles.Analyze();
-            var files = targetFiles.GetFiles();
+            
+            var files = targetFiles.GetChildrenFiles();
             files.Count().Is(0);
         }
 
 
-        [Ignore]
         [TestMethod]
-        public void AA()
+        public void 画像ファイルが3個存在するフォルダの解析()
+        {
+            var tagetFiles = TargetFiles.Factory("./TestsFiles/sample4_6/");
+
+            var files = tagetFiles.GetChildrenFiles();
+            files.Count().Is(3);
+
+        }
+        
+        [TestMethod]
+        public void ファイル2個とフォルダ3個存在するフォルダ解析の場合()
         {
             var targetFiles = TargetFiles.Factory("./TestsFiles/");
-            targetFiles.Analyze();
-            var files = targetFiles.GetFiles();
+
+            var files = targetFiles.GetChildrenFiles();
             files.IsNotNull();
-            files.Count().Is(6);
-            var fi = files.First();
-            var vfs = fi.GetVirtualTargetFiles();
-            vfs.IsNotNull();
-            foreach (var virtualTargetFile in vfs)
-            {
-                virtualTargetFile.GetFileName().Is("");
-            }
+            files.Count().Is(5);
 
 
         }

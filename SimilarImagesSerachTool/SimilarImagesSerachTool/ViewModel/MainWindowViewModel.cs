@@ -30,7 +30,6 @@ namespace SimilarImagesSearchTool.ViewModel
                 throw new ArgumentNullException(nameof(selectedPath));
 
             var targetFiles = TargetFiles.Factory(selectedPath);
-            targetFiles.Analyze();
 
 
 
