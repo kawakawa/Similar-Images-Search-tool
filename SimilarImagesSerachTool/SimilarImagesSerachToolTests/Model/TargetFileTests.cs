@@ -89,7 +89,7 @@ namespace SimilarImagesSearchToolTests.Model
 
 
         [TestMethod]
-        public void ファイル2個とフォルダ3個存在するフォルダ解析の場合()
+        public void ファイル3個とフォルダ3個存在するフォルダ解析の場合()
         {
             var targetFiles = TargetFile.Factory("./TestsFiles/");
 
